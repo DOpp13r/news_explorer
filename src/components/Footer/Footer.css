@@ -1,0 +1,33 @@
+.footer {
+  display: flex;
+  font-family: "Roboto-Small", sans-serif;
+  width: 100%;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__text {
+  width: 433px;
+  height: 22px;
+  color: #b6bcbf;
+  margin: 32px 0 26px 104px;
+}
+
+.footer__links {
+  display: flex;
+  align-items: center;
+  width: 330px;
+  height: 24px;
+}
+
+.footer__link {
+  font-size: 18px;
+  color: #1a1b22;
+  margin: 0 40px 0 0;
+}
+
+.footer__link-icons {
+  display: flex;
+  gap: 26px;
+}
