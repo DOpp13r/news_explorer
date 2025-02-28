@@ -1,0 +1,98 @@
+.login__modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0000004d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login__modal-container {
+  background-color: #ffffff;
+  color: #1a1b22;
+  position: relative;
+  padding: 34px 36px 28px;
+  width: 430px;
+  height: 380px;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.login__modal-close {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  left: 436px;
+  top: -40px;
+  cursor: pointer;
+}
+
+.login__modal-header {
+  font-family: "Roboto-900", sans-serif;
+  font-size: 24px;
+  margin: 0;
+}
+
+.login__modal-form {
+  font-family: "inter-Regular", sans-serif;
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login__modal-label {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  color: #2f71e5;
+  max-height: 47px;
+}
+
+.login__modal-label:last-of-type {
+  margin: 31px 0 39px;
+}
+
+.login__modal-input {
+  font-size: 14px;
+  margin-top: 9px;
+  border: none;
+  border-bottom: 1px solid #000000;
+  height: 24px;
+  padding: 0;
+}
+
+.login__modal-submit {
+  font-family: "Roboto-500", sans-serif;
+  font-size: 18px;
+  border-radius: 100px;
+  height: 64px;
+  width: 358px;
+  border: none;
+  padding: 0;
+  background-color: #2f71e5;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.login__modal-submit:disabled {
+  background-color: #e6e8eb;
+  color: #b6bcbf;
+  cursor: not-allowed;
+}
+
+.login__modal-footer {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.login__modal-change {
+  color: #2f71e5;
+  cursor: pointer;
+}

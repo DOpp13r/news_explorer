@@ -1,0 +1,104 @@
+.register__modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0000004d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+}
+
+.register__modal-container {
+  background-color: #ffffff;
+  color: #1a1b22;
+  position: relative;
+  padding: 34px 36px 28px;
+  width: 430px;
+  height: 458px;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.register__modal-close {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  left: 436px;
+  top: -40px;
+  cursor: pointer;
+}
+
+.register__modal-header {
+  font-family: "Roboto-900", sans-serif;
+  font-size: 24px;
+  margin: 0;
+}
+
+.register__modal-form {
+  font-family: "inter-Regular", sans-serif;
+  /* margin-top: 22px; */
+  display: flex;
+  flex-direction: column;
+}
+
+.register__modal-label {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  color: #2f71e5;
+  max-height: 47px;
+  margin-top: 31px;
+}
+
+.register__modal-label:first-child {
+  margin-top: 22px;
+}
+
+.register__modal-label:last-of-type {
+  margin-bottom: 39px;
+}
+
+.register__modal-input {
+  font-size: 14px;
+  margin-top: 9px;
+  border: none;
+  border-bottom: 1px solid #000000;
+  height: 24px;
+  padding: 0;
+}
+
+.register__modal-submit {
+  font-family: "Roboto-500", sans-serif;
+  font-size: 18px;
+  border-radius: 100px;
+  height: 64px;
+  width: 358px;
+  border: none;
+  padding: 0;
+  background-color: #2f71e5;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.register__modal-submit:disabled {
+  background-color: #e6e8eb;
+  color: #b6bcbf;
+  cursor: not-allowed;
+}
+
+.register__modal-footer {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.register__modal-change {
+  color: #2f71e5;
+  cursor: pointer;
+}

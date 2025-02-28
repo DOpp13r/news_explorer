@@ -9,7 +9,7 @@
 }
 
 .main__title {
-  font-family: "Roboto-Slab-Small", sans serif;
+  font-family: "Roboto-Slab-Regular", sans serif;
   font-size: 60px;
   font-weight: 400;
   max-height: 128px;
@@ -17,7 +17,7 @@
 }
 
 .main__subtitle {
-  font-family: "Roboto-Small", sans serif;
+  font-family: "Roboto-Regular", sans serif;
   font-size: 18px;
   max-height: 24px;
   margin-bottom: 88px;

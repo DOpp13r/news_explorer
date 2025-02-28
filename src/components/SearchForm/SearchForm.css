@@ -9,7 +9,7 @@
 }
 
 .search-form_input {
-  font-family: "Roboto-Small", sans-serif;
+  font-family: "Roboto-Regular", sans-serif;
   width: 376px;
   height: 22px;
   border: none;
@@ -22,7 +22,7 @@
 }
 
 .search-form_button {
-  font-family: "Roboto-Regular", sans-serif;
+  font-family: "Roboto-500", sans-serif;
   color: #ffffff;
   background-color: #2f71e5;
   width: 168px;

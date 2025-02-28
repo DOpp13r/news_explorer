@@ -17,3 +17,9 @@
   width: 100%;
   height: 576px;
 }
+
+@media (min-width: 1440px) {
+  .page__content {
+    justify-self: center;
+  }
+}
