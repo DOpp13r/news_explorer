@@ -163,7 +163,7 @@ function App() {
     localStorage.removeItem("jwt");
     setCurrentUser(null);
 
-    navigate("/News-Explorer");
+    navigate("/");
   };
 
   const getCurrentUser = () => {
@@ -218,7 +218,7 @@ function App() {
           />
           <Routes>
             <Route
-              path="/News-Explorer"
+              path="/"
               element={
                 <Main
                   isLoggedIn={isLoggedIn}
@@ -255,7 +255,7 @@ function App() {
                   isLoggedIn ? (
                     <Navigate to="/saved-news" replace />
                   ) : (
-                    <Navigate to="/News-Explorer" replace />
+                    <Navigate to="/" replace />
                   )
                 }
               />

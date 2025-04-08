@@ -30,13 +30,13 @@ const NewsCard = ({
     <div className="news__card">
       <div
         className={`news__card-header ${
-          pathname === "/News-Explorer"
+          pathname === "/"
             ? "news__card-header--main"
             : "news__card-header--saved"
         }`}
       >
         {isLoggedIn ? (
-          pathname === "/News-Explorer" ? (
+          pathname === "/" ? (
             <button
               className={`card__save-button ${
                 isBookmarked ? "card__save-button-select" : ""
