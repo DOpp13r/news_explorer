@@ -9,14 +9,16 @@ function Header({ handleSignInClick, isLoggedIn, handleLogout, currentUser }) {
   return (
     <header className={`header ${isNewsPage ? "header_theme_dark" : ""}`}>
       <Link
-        to="/"
-        className={`header__link ${location.pathname === "/" ? "active" : ""}`}
+        to="/News-Explorer"
+        className={`header__link ${
+          location.pathname === "/News-Explorer" ? "active" : ""
+        }`}
       >
         <h1 className="header__logo">NewsExplorer</h1>
       </Link>
       <p className="header__tab" alt="header tab">
         <Link
-          to="/"
+          to="/News-Explorer"
           className={`header__link header__home ${
             !isNewsPage ? "header__home-link" : ""
           }`}
