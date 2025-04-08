@@ -2,14 +2,19 @@ import "./Footer.css";
 
 import githubLogo from "../../assets/github-icon.svg";
 import facebookLogo from "../../assets/facebook-icon.svg";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <footer className="footer">
-      <p className="footer__text">© 2024 Supersite, Powered by News API</p>
-      <div className="footer__links">
-        <p className="footer__link">Home</p>
-        <p className="footer__link">TripleTen</p>
+      <p className="footer__text">© 2025 Supersite, Powered by News API</p>
+      <nav className="footer__links">
+        <Link to="/" className="footer__link">
+          Home
+        </Link>
+        <a className="footer__link" href="https://tripleten.com/">
+          TripleTen
+        </a>
         <div className="footer__link-icons">
           <a className="footer__link-icon" href="https://github.com/DOpp13r">
             <img
@@ -18,7 +23,10 @@ function Footer() {
               src={githubLogo}
             />
           </a>
-          <a className="footer__link-icon" href="https://www.facebook.com/">
+          <a
+            className="footer__link-icon"
+            href="https://www.facebook.com/tripleten.tech"
+          >
             <img
               className="footer__social-icon"
               alt="facebook logo"
@@ -26,7 +34,7 @@ function Footer() {
             />
           </a>
         </div>
-      </div>
+      </nav>
     </footer>
   );
 }

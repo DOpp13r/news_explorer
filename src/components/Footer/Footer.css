@@ -5,6 +5,7 @@
   height: 80px;
   justify-content: space-between;
   align-items: center;
+  background-color: #ffffff;
 }
 
 .footer__text {
@@ -25,9 +26,25 @@
   font-size: 18px;
   color: #1a1b22;
   margin: 0 40px 0 0;
+  text-decoration: none;
 }
 
 .footer__link-icons {
   display: flex;
   gap: 26px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    width: 768px;
+    height: 64px;
+  }
+
+  .footer__text {
+    margin: 24px 0 18px 40px;
+  }
+
+  .footer__link-icons {
+    gap: 24px;
+  }
 }

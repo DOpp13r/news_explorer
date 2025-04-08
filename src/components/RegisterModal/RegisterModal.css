@@ -42,7 +42,6 @@
 
 .register__modal-form {
   font-family: "inter-Regular", sans-serif;
-  /* margin-top: 22px; */
   display: flex;
   flex-direction: column;
 }
@@ -101,4 +100,8 @@
 .register__modal-change {
   color: #2f71e5;
   cursor: pointer;
+}
+
+.register__modal-error {
+  color: #ff0000;
 }

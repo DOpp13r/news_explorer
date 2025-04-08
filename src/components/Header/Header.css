@@ -1,12 +1,17 @@
 .header {
   display: flex;
-  padding: 19px 104px 13px;
+  padding: 0 104px 0;
   line-height: 24px;
-  max-height: 80px;
+  max-height: 66px;
   position: relative;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #ffffff33;
+}
+
+.header_theme_dark {
+  color: #1a1b22;
+  border-bottom-color: rgba(26, 27, 34, 0.1);
 }
 
 .header__logo {
@@ -20,15 +25,86 @@
   font-family: "Roboto-500", sans-serif;
   font-size: 18px;
   display: flex;
-  gap: 20px;
+  gap: 32px;
   color: #ffffff;
   margin: 0;
   align-items: center;
 }
 
-.header__signin {
+.header__home {
+  padding: 0;
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  height: 100%;
+  width: 70px;
+}
+
+.header__home-link {
+  border-bottom: 3px solid #ffffff;
+  padding-bottom: 5px;
+}
+
+.header__articles {
+  width: 160px;
+}
+
+.header__articles-link {
+  border-bottom: 3px solid #1a1b22;
+  padding-bottom: 5px;
+  width: 160px;
+}
+
+.header__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 66px;
+  text-decoration: none;
+  color: #ffffff;
+  padding: 0;
+}
+
+.header_theme_dark .header__logo,
+.header_theme_dark .header__link,
+.header_theme_dark .header__tab {
+  color: #1a1b22;
+}
+
+.header__logout {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: transparent;
+  height: 40px;
+  border-radius: 100px;
+  border: 1px solid #d1d2d6;
+  padding: 8px 13px 8px 15px;
+}
+
+.header__logout-text {
   font-family: "Roboto-500", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.header_theme_dark .header__logout-text {
+  color: #1a1b22;
+}
+
+.header_theme_dark .header__logout-icon {
+  filter: brightness(0) saturate(100%);
+}
+
+.header__logout-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.header__signin {
   padding: 12px;
   width: 176px;
   height: 48px;
@@ -37,4 +113,28 @@
   border: 1px solid #ffffff;
   background-color: transparent;
   cursor: pointer;
+}
+
+.header_theme_dark .header__signin {
+  border: 1px solid #1a1b22;
+  color: #1a1b22;
+}
+@media (max-width: 768px) {
+  .header {
+    padding: 22px 40px 20px;
+  }
+
+  .header__tab {
+    font-size: 16px;
+    gap: 16px;
+  }
+
+  .header__logout-text {
+    font-size: 16px;
+  }
+
+  .header__signin {
+    width: 152px;
+    height: 40px;
+  }
 }

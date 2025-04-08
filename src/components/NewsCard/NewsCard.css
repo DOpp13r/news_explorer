@@ -1,0 +1,221 @@
+.news__card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  color: #1a1b22;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.news__card-header {
+  display: flex;
+  position: absolute;
+  width: 400px;
+  height: 40px;
+  margin-top: 24px;
+}
+
+.news__card-header--main {
+  justify-content: flex-end;
+}
+
+.news__card-header--saved {
+  justify-content: space-around;
+}
+
+.news__card-text {
+  padding: 20px 24px 24px;
+}
+
+.news__card-date {
+  font-family: Source Sans Pro, sans-serif;
+  color: #b6bcbf;
+  font-weight: 400;
+  font-size: 18px;
+  margin: 0;
+}
+
+.news__card-title {
+  font-family: "Roboto-Slab-Regular", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  height: 60px;
+  width: 352px;
+  margin: 12px 0 16px 0;
+}
+
+.news__card-body {
+  font-family: "Roboto-Regular", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  margin: 0;
+  line-height: 22px;
+  width: 352px;
+  height: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.news__card-source {
+  font-family: "Roboto-Slab-Bold", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  color: #b6bcbf;
+  margin: 18px 0 0 0;
+  letter-spacing: 0.4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__save-button {
+  background-image: url("../../assets/bookmark-icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 40px;
+  width: 40px;
+  background-color: #ffffff;
+  padding: 0;
+  margin-right: 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.card__save-button-select {
+  background-image: url("../../assets/active-bookmark-icon.svg");
+}
+
+.card__save-button:hover {
+  background-image: url("../../assets/hover-bookmark-icon.svg");
+}
+
+.card__save-tab {
+  display: flex;
+  gap: 5px;
+}
+
+.card__signin-text {
+  font-family: "Roboto-500", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 12px;
+  background-color: #ffffff;
+  width: 182px;
+  height: 40px;
+  border-radius: 10px;
+  margin: 0;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.6s ease, transform 0.4s ease;
+}
+
+.card__save-tab:hover .card__signin-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.card__keyword {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto-500", sans-serif;
+  font-size: 14px;
+  background-color: #ffffff;
+  max-width: 150px;
+  height: 24px;
+  border-radius: 10px;
+  border: none;
+  padding: 8px 22px;
+  margin: 0;
+}
+
+.card__delete-tab {
+  display: flex;
+  font-family: "Roboto-500", sans-serif;
+  font-size: 12px;
+  height: 100%;
+  gap: 5px;
+}
+
+.card__delete-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  height: 100%;
+  width: 160px;
+  margin: 0;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.6s ease, transform 0.4s ease;
+}
+
+.card__delete-button {
+  background-image: url("../../assets/trash-icon.svg");
+  height: 40px;
+  width: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  background-color: #ffffff;
+}
+
+.card__delete-button:hover {
+  background-image: url("../../assets/trash-hover-icon.svg");
+}
+
+.card__delete-tab:hover .card__delete-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .news__card {
+    width: 224px;
+    height: 420px;
+  }
+
+  .news__card-header {
+    width: 224px;
+    margin-top: 8px;
+  }
+
+  .news__card-text {
+    padding: 16px;
+  }
+
+  .news__card-date {
+    height: 24px;
+  }
+
+  .news__card-title {
+    font-size: 21px;
+    width: 192px;
+    height: 72px;
+    margin: 12px 0 10px 0;
+  }
+
+  .news__card-body {
+    width: 192px;
+    height: 88px;
+  }
+
+  .news__card-source {
+    margin-top: 12px;
+  }
+
+  .card__save-button {
+    margin-right: 8px;
+  }
+}

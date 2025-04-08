@@ -1,0 +1,83 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  padding: 20px 0;
+}
+
+.nav__links {
+  font-family: "Roboto-500", sans-serif;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.nav__links-logged-in {
+  color: #1a1b22;
+}
+
+.nav__links-logged-out {
+  color: #ffffff;
+}
+
+.nav__link {
+  background-color: transparent;
+  border-style: none;
+  padding: 0;
+  margin-left: 76px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.nav__link-saved {
+  color: #1a1b22;
+}
+
+.nav__current-user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  max-width: 320px;
+  padding: 12px 17px;
+  border: 1px solid #ffffff;
+  border-radius: 100px;
+  margin-left: 64px;
+  cursor: pointer;
+}
+
+.nav__current-username {
+  border-style: none;
+  background-color: transparent;
+  padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 0;
+  color: #ffffff;
+}
+
+.nav__current-username-saved {
+  color: #1a1b22;
+}
+
+.nav__current-user_signout {
+  background-image: url(../../assets/logout-icon.svg);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 12px;
+  margin-left: 16px;
+  border-style: none;
+}
+
+.nav__current-user_signout-saved {
+  background-image: url(../../assets/logout-icon-dark.svg);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 12px;
+  margin-left: 16px;
+  border-style: none;
+}

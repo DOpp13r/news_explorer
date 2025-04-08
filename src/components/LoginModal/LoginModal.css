@@ -96,3 +96,7 @@
   color: #2f71e5;
   cursor: pointer;
 }
+
+.login__modal-error {
+  color: #ff0000;
+}

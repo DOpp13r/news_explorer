@@ -3,7 +3,6 @@
   flex-direction: row;
   justify-content: space-between;
   height: 64px;
-  width: 100%;
   background-color: #ffffff;
   border-radius: 64px;
 }
@@ -29,4 +28,20 @@
   border-radius: 64px;
   border: none;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .search-form {
+    height: 56px;
+  }
+
+  .search-form_input {
+    width: 228px;
+    margin-top: 17px;
+  }
+
+  .search-form_button {
+    width: 160px;
+    height: 56px;
+  }
 }
