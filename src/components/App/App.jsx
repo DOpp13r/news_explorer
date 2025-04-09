@@ -96,8 +96,6 @@ function App() {
   }, []);
 
   const handleDeleteArticle = (id) => {
-    console.log("Deleting article with ID:", id);
-    console.log("Current saved articles:", savedArticles);
     const updatedArticles = savedArticles.filter(
       (article) => article._id !== id
     );
