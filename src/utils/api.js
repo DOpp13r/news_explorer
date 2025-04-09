@@ -30,7 +30,6 @@ function getItems(query) {
           imageUrl: article.urlToImage,
           url: article.url,
         }));
-
         resolve(articles);
       })
       .catch((err) => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./SearchResults.css";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import Preloader from "../Preloader/Preloader";
@@ -15,6 +15,9 @@ function SearchResults({
   searchQuery,
   searchResults,
 }) {
+  if (!searchSubmitted) {
+    return null;
+  }
   return (
     <div className="search__results">
       <section className="search__results-contents">
@@ -23,13 +26,14 @@ function SearchResults({
           <div className="search__results-body">
             <Preloader />
           </div>
-        ) : savedArticles.length > 0 ? (
+        ) : searchResults.length > 0 ? (
           <>
             <NewsCardList
               isLoggedIn={isLoggedIn}
               savedArticles={savedArticles}
               setSavedArticles={setSavedArticles}
               handleSaveBookmark={handleSaveBookmark}
+              searchResults={searchResults}
             />
           </>
         ) : (

@@ -42,7 +42,7 @@ function SavedNewsPage({
             item={item}
             isBookmarked={true}
             isLoggedIn={true}
-            onBookmark={() => handleDeleteArticle(item.url)}
+            onBookmark={() => handleDeleteArticle(item._id)}
           />
         ))}
       </ul>

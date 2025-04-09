@@ -20,7 +20,6 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 import { getItems } from "../../utils/api";
 import { authorize, checkToken, signup } from "../../utils/auth";
-import { defaultNewsCards } from "../../utils/constants";
 
 function App() {
   const [modalOpen, setModalOpen] = useState("");
@@ -30,7 +29,7 @@ function App() {
   const [loginError, setLoginError] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [savedArticles, setSavedArticles] = useState(defaultNewsCards);
+  const [savedArticles, setSavedArticles] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [keywords, setKeywords] = useState([]);
@@ -73,8 +72,6 @@ function App() {
   };
 
   const handleSaveBookmark = (article) => {
-    console.log("Current saved articles:", savedArticles);
-    console.log("Article being saved/unsaved:", article);
     setSavedArticles((prevSavedArticles) => {
       const isAlreadySaved = prevSavedArticles.some(
         (savedArticle) => savedArticle._id === article._id
@@ -98,13 +95,14 @@ function App() {
     }
   }, []);
 
-  const handleDeleteArticle = (url) => {
+  const handleDeleteArticle = (id) => {
+    console.log("Deleting article with ID:", id);
+    console.log("Current saved articles:", savedArticles);
     const updatedArticles = savedArticles.filter(
-      (article) => article.url !== url
+      (article) => article._id !== id
     );
-
+    console.log("Articles after filter:", updatedArticles);
     setSavedArticles(updatedArticles);
-
     localStorage.setItem("savedArticles", JSON.stringify(updatedArticles));
   };
 

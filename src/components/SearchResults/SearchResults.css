@@ -1,7 +1,6 @@
 .search__results {
   display: flex;
   width: 100%;
-  margin-top: 80px;
 }
 .search__results-contents {
   background-color: #f5f6f7;

@@ -40,10 +40,11 @@ function NewsCardList({
             <NewsCard
               key={item._id}
               item={item}
-              isBookmarked={savedArticles.includes(item._id)}
-              onBookmark={() => handleSaveBookmark(item._id)}
+              isBookmarked={savedArticles.some(
+                (savedArticle) => savedArticle._id === item._id
+              )}
+              onBookmark={() => handleSaveBookmark(item)}
               isLoggedIn={isLoggedIn}
-              defaultNewsCards={defaultNewsCards}
             />
           );
         })}

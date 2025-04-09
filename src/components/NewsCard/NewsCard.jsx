@@ -48,7 +48,11 @@ const NewsCard = ({
               <p className="card__keyword">{item.keyword}</p>
               <div className="card__delete-tab">
                 <p className="card__delete-text">Remove from saved</p>
-                <button className="card__delete-button" type="button"></button>
+                <button
+                  className="card__delete-button"
+                  type="button"
+                  onClick={onBookmark}
+                ></button>
               </div>
             </>
           )
