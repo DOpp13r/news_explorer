@@ -44,15 +44,23 @@
 }
 
 @media (max-width: 768px) {
-  .search__results {
-    margin-top: 48px;
-  }
-
   .search__results-contents {
     padding: 28px;
   }
 
   .search__results-show-more {
     margin-top: 32px;
+  }
+}
+
+@media (max-width: 320px) {
+  .search__results-contents {
+    padding: 32px 16px 24px;
+  }
+
+  .search__results-header {
+    font-size: 30px;
+    width: auto;
+    margin-bottom: 58px;
   }
 }

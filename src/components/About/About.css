@@ -63,11 +63,12 @@
     height: 34px;
     margin: 0 0 16px 0;
   }
+
   .about__content {
     display: flex;
     align-items: center;
     padding: 40px;
-    max-height: 354px;
+    min-height: auto;
   }
 
   .about__image {
@@ -78,5 +79,31 @@
 
   .about__info {
     margin-left: 32px;
+  }
+}
+
+@media (max-width: 320px) {
+  .about__content {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 16px 16px;
+  }
+
+  .about__title {
+    font-size: 30px;
+    width: 288px;
+    height: 34px;
+    margin: 24px 0 16px 0;
+  }
+
+  .about__image {
+    width: 272px;
+    height: 272px;
+    margin: 0;
+  }
+
+  .about__info {
+    margin-left: 0;
+    height: auto;
   }
 }

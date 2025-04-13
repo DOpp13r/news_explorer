@@ -34,7 +34,9 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [keywords, setKeywords] = useState([]);
   const [searchSubmitted, setSearchSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [isValid, setIsValid] = useState(false);
 
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -76,14 +78,24 @@ function App() {
       const isAlreadySaved = prevSavedArticles.some(
         (savedArticle) => savedArticle._id === article._id
       );
-      const newSavedArticles = isAlreadySaved
-        ? prevSavedArticles.filter(
-            (savedArticle) => savedArticle._id !== article._id
-          )
-        : [...prevSavedArticles, article];
 
+      // If we're removing the article, filter it out
+      if (isAlreadySaved) {
+        const newSavedArticles = prevSavedArticles.filter(
+          (savedArticle) => savedArticle._id !== article._id
+        );
+        localStorage.setItem("savedArticles", JSON.stringify(newSavedArticles));
+        return newSavedArticles;
+      }
+
+      // If we're adding the article, include the current search query as the keyword
+      const articleWithKeyword = {
+        ...article,
+        keyword: searchQuery, // Add the current search query as the keyword
+      };
+
+      const newSavedArticles = [...prevSavedArticles, articleWithKeyword];
       localStorage.setItem("savedArticles", JSON.stringify(newSavedArticles));
-
       return newSavedArticles;
     });
   };
@@ -268,12 +280,18 @@ function App() {
         handleLogin={handleLogin}
         loginError={loginError}
         setLoginError={setLoginError}
+        setIsSubmitting={setIsSubmitting}
+        isValid={isValid}
+        setIsValid={setIsValid}
       />
       <RegisterModal
         isOpen={modalOpen === "sign-up"}
         onClose={closeModal}
         handleRegister={handleRegister}
         handleSignInClick={handleSignInClick}
+        setIsSubmitting={setIsSubmitting}
+        isValid={isValid}
+        setIsValid={setIsValid}
       />
       <RegistrationCompleteModal
         isOpen={modalOpen === "register-complete"}

@@ -27,7 +27,7 @@ const NewsCard = ({
   };
 
   return (
-    <div className="news__card">
+    <li className="news__card">
       <div
         className={`news__card-header ${
           pathname === "/"
@@ -38,18 +38,18 @@ const NewsCard = ({
         {isLoggedIn ? (
           pathname === "/" ? (
             <button
-              className={`card__save-button ${
-                isBookmarked ? "card__save-button-select" : ""
+              className={`news__save-button ${
+                isBookmarked ? "news__save-button--active" : ""
               }`}
               onClick={onBookmark}
             ></button>
           ) : (
             <>
-              <p className="card__keyword">{item.keyword}</p>
-              <div className="card__delete-tab">
-                <p className="card__delete-text">Remove from saved</p>
+              <p className="news__keyword">{item.keyword}</p>
+              <div className="news__delete-tab">
+                <p className="news__delete-text">Remove from saved</p>
                 <button
-                  className="card__delete-button"
+                  className="news__delete-button"
                   type="button"
                   onClick={onBookmark}
                 ></button>
@@ -58,10 +58,10 @@ const NewsCard = ({
           )
         ) : (
           <>
-            <div className="card__save-tab">
-              <p className="card__signin-text">Sign in to save articles</p>
+            <div className="news__save-tab">
+              <p className="news__signin-text">Sign in to save articles</p>
               <button
-                className="card__save-button"
+                className="news__save-button"
                 type="button"
                 onClick={handleLoginClick}
               ></button>
@@ -71,16 +71,23 @@ const NewsCard = ({
       </div>
       <img
         className="news__card-image"
-        src={images[item._id]}
+        src={item.imageUrl || item.urlToImage || images[0]}
         alt={item.title}
       />
       <div className="news__card-text">
-        <p className="news__card-date">{formatDate(item.publishedAt)}</p>
+        <p className="news__card-date">
+          {formatDate(item.publishedAt || item.date)}
+        </p>
         <h2 className="news__card-title">{item.title}</h2>
-        <p className="news__card-body">{item.content}</p>
-        <p className="news__card-source">{item.source.name.toUpperCase()}</p>
+        <p className="news__card-body">{item.content || item.description}</p>
+        <p className="news__card-source">
+          {(typeof item.source === "string"
+            ? item.source
+            : item.source?.name
+          )?.toUpperCase()}
+        </p>
       </div>
-    </div>
+    </li>
   );
 };
 

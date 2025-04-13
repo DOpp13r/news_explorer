@@ -1,5 +1,8 @@
 .main {
   max-width: 1440px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .main__content {
@@ -36,6 +39,30 @@
   .main__subtitle {
     margin-bottom: 48px;
     width: 452px;
-    height: 48px;
+    max-height: 48px;
+  }
+}
+
+@media (max-width: 320px) {
+  .main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main__content {
+    flex: 1;
+  }
+
+  .main__title {
+    width: 288px;
+    height: 80px;
+    margin: 30px 16px 16px;
+  }
+
+  .main__subtitle {
+    width: 288px;
+    max-height: 72px;
+    margin-bottom: 60px;
   }
 }

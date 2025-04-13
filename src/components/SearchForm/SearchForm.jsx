@@ -15,17 +15,17 @@ const SearchForm = ({ handleSearch, handleSearchSubmit }) => {
   };
 
   return (
-    <form className="search-form" onSubmit={handleSearchClick}>
-      <label className="search-form_label">
+    <form className="search__form" onSubmit={handleSearchClick}>
+      <label className="search__form-label">
         <input
-          className="search-form_input"
+          className="search__form-input"
           type="text"
           placeholder="Enter topic"
           value={query}
           onChange={handleChange}
         />
       </label>
-      <button className="search-form_button" type="submit">
+      <button className="search__form-button" type="submit">
         Search
       </button>
     </form>

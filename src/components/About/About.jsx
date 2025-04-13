@@ -4,7 +4,7 @@ import myPic from "../../assets/my-pic.jpg";
 
 function About() {
   return (
-    <div className="about">
+    <section className="about">
       <div className="about__content">
         <img className="about__image" alt="author image" src={myPic} />
         <div className="about__info">
@@ -25,7 +25,7 @@ function About() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

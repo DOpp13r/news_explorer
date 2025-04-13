@@ -29,6 +29,10 @@
   cursor: pointer;
 }
 
+.card__list-show-more:hover {
+  background-color: #e8e8e8;
+}
+
 .show-more-button {
   transition: transform 0.4s ease;
 }
@@ -52,6 +56,12 @@
   animation: fadeIn 0.5s ease-out forwards;
 }
 
+@media (max-width: 1424px) {
+  .card__list {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 768px) {
   .card__list-header {
     margin-bottom: 32px;
@@ -60,4 +70,7 @@
   .card__list {
     gap: 8px;
   }
+}
+
+@media (max-width: 320px) {
 }

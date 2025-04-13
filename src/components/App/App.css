@@ -23,3 +23,11 @@
     height: 400px;
   }
 }
+
+@media (max-width: 320px) {
+  .page__background {
+    width: 320px;
+    height: 536px;
+    content: fit;
+  }
+}

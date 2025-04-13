@@ -8,8 +8,15 @@ function NewsCardList({
   savedArticles,
   setSavedArticles,
   handleSaveBookmark,
+  searchResults,
 }) {
   const [visibleCards, setVisibleCards] = useState(3);
+
+  const showMoreCards = () => {
+    setVisibleCards((prevValue) => prevValue + 3);
+  };
+
+  const cardsToDisplay = searchResults || defaultNewsCards;
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -28,14 +35,10 @@ function NewsCardList({
     }
   }, [savedArticles]);
 
-  const showMoreCards = () => {
-    setVisibleCards((prevValue) => prevValue + 3);
-  };
-
   return (
     <div className="card__list-section">
       <ul className="card__list">
-        {defaultNewsCards.slice(0, visibleCards).map((item) => {
+        {cardsToDisplay.slice(0, visibleCards).map((item) => {
           return (
             <NewsCard
               key={item._id}
@@ -49,7 +52,7 @@ function NewsCardList({
           );
         })}
       </ul>
-      {visibleCards < defaultNewsCards.length && (
+      {visibleCards < cardsToDisplay.length && (
         <div className="card__list-button">
           <button
             className="card__list-show-more show-more-button"

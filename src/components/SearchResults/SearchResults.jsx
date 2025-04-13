@@ -21,13 +21,13 @@ function SearchResults({
   return (
     <div className="search__results">
       <section className="search__results-contents">
-        <h2 className="search__results-header">Search results</h2>
         {loading ? (
           <div className="search__results-body">
             <Preloader />
           </div>
         ) : searchResults.length > 0 ? (
           <>
+            <h2 className="search__results-header">Search results</h2>
             <NewsCardList
               isLoggedIn={isLoggedIn}
               savedArticles={savedArticles}

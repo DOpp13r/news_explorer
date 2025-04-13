@@ -12,11 +12,23 @@ function Footer() {
         <Link to="/" className="footer__link">
           Home
         </Link>
-        <a className="footer__link" href="https://tripleten.com/">
+        <a
+          className="footer__link"
+          href="https://tripleten.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           TripleTen
         </a>
+      </nav>
+      <nav className="footer__logos">
         <div className="footer__link-icons">
-          <a className="footer__link-icon" href="https://github.com/DOpp13r">
+          <a
+            className="footer__link"
+            href="https://github.com/DOpp13r"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               className="footer__social-icon"
               alt="github logo"
@@ -24,8 +36,10 @@ function Footer() {
             />
           </a>
           <a
-            className="footer__link-icon"
+            className="footer__link"
             href="https://www.facebook.com/tripleten.tech"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <img
               className="footer__social-icon"
