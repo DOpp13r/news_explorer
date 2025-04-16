@@ -19,23 +19,23 @@ function SavedNewsPage({
   }, [savedArticles]);
 
   return (
-    <div className="news-page--saved">
-      <div className="news-page--saved__header">
-        <p className="news-page--saved__text">Saved articles</p>
-        <p className="news-page--saved__title">
+    <div className="news__page-saved">
+      <div className="news__page-saved-header">
+        <p className="news__page-saved-text">Saved articles</p>
+        <p className="news__page-saved-title">
           {currentUser?.username}, you have {savedArticles.length} saved
           articles
         </p>
-        <p className="news-page--saved__keywords">
+        <p className="news__page-saved-keywords">
           By keywords:{" "}
-          <span className="news-page--saved__keywords__span">
+          <span className="news__page-saved-keywords__span">
             {keywords[0]}
             {keywords[1] ? `,  ${keywords[1]}` : ""}
             {keywords[2] ? `, and ${keywords.length - 2} other` : ""}
           </span>
         </p>
       </div>
-      <ul className="news-page--saved__list">
+      <ul className="news__page-saved-list">
         {savedArticles.map((item) => (
           <NewsCard
             key={item._id}

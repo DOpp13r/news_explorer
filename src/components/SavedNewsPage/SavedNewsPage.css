@@ -1,4 +1,4 @@
-.news-page--saved__header {
+.news__page-saved-header {
   font-family: "Roboto-Regular", sans-serif;
   font-weight: 400;
   font-size: 18px;
@@ -6,14 +6,14 @@
   padding: 0 106px 0 104px;
 }
 
-.news-page--saved__text {
+.news__page-saved-text {
   color: #1a1b2280;
   margin: 40px 0 28px 0;
   width: 120px;
   height: 24px;
 }
 
-.news-page--saved__title {
+.news__page-saved-title {
   font-family: "Roboto-Slab-Regular", sans-serif;
   font-weight: 400;
   font-size: 40px;
@@ -22,19 +22,19 @@
   margin: 0;
 }
 
-.news-page--saved__keywords {
+.news__page-saved-keywords {
   height: 24px;
   margin-bottom: 56px;
 }
 
-.news-page--saved__keywords__span {
+.news__page-saved-keywords__span {
   font-family: "Roboto-700", sans-serif;
   font-weight: 700;
   font-size: 18px;
   margin: 30px 0 56px 0;
 }
 
-.news-page--saved__list {
+.news__page-saved-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -45,59 +45,60 @@
 }
 
 @media (max-width: 768px) {
-  .news-page--saved__header {
+  .news__page-saved-header {
     padding: 0 40px;
   }
 
-  .news-page--saved__text {
+  .news__page-saved-text {
     margin: 24px 0 16px 0;
     font-size: 14px;
   }
 
-  .news-page--saved__title {
+  .news__page-saved-title {
     font-size: 30px;
     width: 336px;
     height: 68px;
   }
 
-  .news-page--saved__keywords {
+  .news__page-saved-keywords {
     margin: 16px 0 32px 0;
   }
 
-  .news-page--saved__list {
+  .news__page-saved-list {
     padding: 32px 20px;
   }
 }
 
 @media (max-width: 600px) {
-  .news-page--saved__title {
+  .news__page-saved-title {
     width: auto;
     font-size: 24px;
   }
 }
 
-@media (max-width: 320px) {
-  .news-page--saved__header {
+@media (max-width: 334px) {
+  .news__page-saved-header {
     padding: 0 16px;
   }
-  .news-page--saved__text {
+
+  .news__page-saved-text {
     margin: 8px 0 16px 0;
     font-size: 12px;
-    width: 273px;
+    width: 100%;
   }
 
-  .news-page--saved__title {
+  .news__page-saved-title {
     font-size: 30px;
-    width: 273px;
+    width: 100%;
     height: auto;
   }
 
-  .news-page--saved__keywords {
-    width: 273px;
+  .news__page-saved-keywords {
+    width: 100%;
     max-height: 48px;
   }
 
-  .news-page--saved__list {
+  .news__page-saved-list {
     padding: 24px 16px 12px;
     gap: 10px;
   }

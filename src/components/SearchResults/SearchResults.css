@@ -46,7 +46,7 @@
 
 @media (max-width: 1167px) {
   .search__results-contents {
-    padding: 35px;
+    padding: 35px 22px;
   }
 }
 
