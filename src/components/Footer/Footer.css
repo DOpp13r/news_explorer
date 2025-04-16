@@ -5,22 +5,24 @@
   justify-content: space-between;
   align-items: center;
   background-color: #ffffff;
-  margin: 32px 104px 26px;
+  padding: 32px 104px 26px;
 }
 
 .footer__text {
   width: 433px;
   height: 22px;
   color: #b6bcbf;
-  margin: 0 485px 0 0;
-  /* margin: 32px 0 26px 104px; */
+  text-align: left;
+}
+
+.footer__socials {
+  display: flex;
 }
 
 .footer__links {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 164px;
   height: 24px;
 }
 
@@ -29,15 +31,19 @@
   height: 24px;
   color: #1a1b22;
   text-decoration: none;
+  margin-right: 40px;
 }
 
 .footer__link-icons {
   display: flex;
   gap: 26px;
+  height: 24px;
 }
 
-.footer__social-icon {
-  width: 24px;
+@media (max-width: 1424px) {
+  .footer {
+    padding: 32px 35px 26px;
+  }
 }
 
 @media (max-width: 1167px) {
@@ -48,56 +54,53 @@
 
 @media (max-width: 768px) {
   .footer {
-    width: 768px;
     height: 64px;
     margin: 0;
+    padding: 24px 40px 18px;
   }
 
   .footer__text {
-    margin: 24px 0 18px 40px;
-    width: 385px;
+    font-size: 16px;
+    width: 300px;
   }
 
-  .footer__links {
-    width: 163px;
+  .footer__link {
+    margin-right: 20px;
   }
 
   .footer__link-icons {
     gap: 24px;
-    margin-right: 41px;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 623px) {
   .footer {
-    display: flex;
-    width: 100%;
-    margin-top: auto;
     height: auto;
     flex-direction: column-reverse;
+    padding: 20px 16px 22px;
   }
 
   .footer__text {
     width: 288px;
     text-align: center;
-    margin: 20px 16px 22px;
+    margin-top: 20px;
+  }
+
+  .footer__socials {
+    justify-content: space-between;
+    width: 100%;
   }
 
   .footer__links {
-    display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
-    width: 288px;
+    width: 100%;
     margin-bottom: 40px;
   }
 
-  .footer__link-icons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 24px;
-    margin-top: 20px;
-    width: 288px;
+  .footer__social-icon {
+    width: 24px;
+    height: 24px;
   }
 }

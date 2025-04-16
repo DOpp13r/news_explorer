@@ -43,6 +43,7 @@
 @media (max-width: 768px) {
   .search__form {
     height: 56px;
+    margin-bottom: 12px;
   }
 
   .search__form-input {
@@ -56,7 +57,7 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 600px) {
   .search__form {
     display: flex;
     flex-direction: column;
@@ -64,6 +65,7 @@
     width: 288px;
     gap: 16px;
     background-color: transparent;
+    margin-bottom: 96px;
   }
 
   .search__form-label {
@@ -71,7 +73,8 @@
   }
 
   .search__form-input {
-    width: 256px;
+    width: 288px;
+    height: 56px;
     margin: 0;
     padding: 17px 16px;
     border-radius: 100px;

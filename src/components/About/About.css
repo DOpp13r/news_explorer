@@ -45,22 +45,23 @@
   margin-top: 15px;
 }
 
+@media (max-width: 1424px) {
+  .about__content {
+    padding: 30px;
+  }
+}
+
 @media (max-width: 1167px) {
   .about__image {
     width: 340px;
     height: 340px;
-  }
-
-  .about__content {
-    padding: 55px;
   }
 }
 
 @media (max-width: 768px) {
   .about__title {
     font-size: 30px;
-    width: 424px;
-    height: 34px;
+    height: 100%;
     margin: 0 0 16px 0;
   }
 
@@ -82,7 +83,7 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 623px) {
   .about__content {
     display: flex;
     flex-direction: column;

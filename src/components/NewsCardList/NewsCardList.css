@@ -1,23 +1,24 @@
-.card__list-section {
+.news__list-section {
   padding: 0;
   margin: 0;
 }
 
-.card__list {
+.news__list {
   background-color: #f5f6f7;
   display: flex;
   flex-wrap: wrap;
   padding: 0;
   margin: 0;
   gap: 16px;
+  width: 100%;
 }
 
-.card__list-button {
+.news__list-button {
   display: flex;
   justify-content: center;
 }
 
-.card__list-show-more {
+.news__list-show-more {
   font-family: "Roboto-500", sans-serif;
   font-size: 18px;
   border: 1px solid #e8e8e8;
@@ -29,7 +30,7 @@
   cursor: pointer;
 }
 
-.card__list-show-more:hover {
+.news__list-show-more:hover {
   background-color: #e8e8e8;
 }
 
@@ -52,22 +53,22 @@
   }
 }
 
-.card__list > * {
+.news__list > * {
   animation: fadeIn 0.5s ease-out forwards;
 }
 
 @media (max-width: 1424px) {
-  .card__list {
+  .news__list {
     justify-content: center;
   }
 }
 
 @media (max-width: 768px) {
-  .card__list-header {
+  .news__list-header {
     margin-bottom: 32px;
   }
 
-  .card__list {
+  .news__list {
     gap: 8px;
   }
 }

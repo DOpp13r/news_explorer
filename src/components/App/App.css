@@ -13,7 +13,7 @@
   height: 576px;
 }
 
-.page__background_saved {
+.page__background--saved {
   width: 100%;
 }
 
@@ -26,8 +26,13 @@
 
 @media (max-width: 320px) {
   .page__background {
-    width: 320px;
     height: 536px;
-    content: fit;
+  }
+}
+
+@media (max-width: 320px) {
+  .page__background {
+    width: 100%;
+    height: 536px;
   }
 }

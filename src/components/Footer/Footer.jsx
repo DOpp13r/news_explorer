@@ -8,47 +8,49 @@ function Footer() {
   return (
     <footer className="footer">
       <p className="footer__text">© 2025 Supersite, Powered by News API</p>
-      <nav className="footer__links">
-        <Link to="/" className="footer__link">
-          Home
-        </Link>
-        <a
-          className="footer__link"
-          href="https://tripleten.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          TripleTen
-        </a>
-      </nav>
-      <nav className="footer__logos">
-        <div className="footer__link-icons">
+      <div className="footer__socials">
+        <nav className="footer__links">
+          <Link to="/" className="footer__link">
+            Home
+          </Link>
           <a
             className="footer__link"
-            href="https://github.com/DOpp13r"
+            href="https://tripleten.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              className="footer__social-icon"
-              alt="github logo"
-              src={githubLogo}
-            />
+            TripleTen
           </a>
-          <a
-            className="footer__link"
-            href="https://www.facebook.com/tripleten.tech"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              className="footer__social-icon"
-              alt="facebook logo"
-              src={facebookLogo}
-            />
-          </a>
-        </div>
-      </nav>
+        </nav>
+        <nav className="footer__logos">
+          <div className="footer__link-icons">
+            <a
+              className="footer__icon"
+              href="https://github.com/DOpp13r"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className="footer__social-icon"
+                alt="github logo"
+                src={githubLogo}
+              />
+            </a>
+            <a
+              className="footer__icon"
+              href="https://www.facebook.com/tripleten.tech"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className="footer__social-icon"
+                alt="facebook logo"
+                src={facebookLogo}
+              />
+            </a>
+          </div>
+        </nav>
+      </div>
     </footer>
   );
 }

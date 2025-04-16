@@ -36,8 +36,8 @@ function NewsCardList({
   }, [savedArticles]);
 
   return (
-    <div className="card__list-section">
-      <ul className="card__list">
+    <div className="news__list-section">
+      <ul className="news__list">
         {cardsToDisplay.slice(0, visibleCards).map((item) => {
           return (
             <NewsCard
@@ -53,9 +53,9 @@ function NewsCardList({
         })}
       </ul>
       {visibleCards < cardsToDisplay.length && (
-        <div className="card__list-button">
+        <div className="news__list-button">
           <button
-            className="card__list-show-more show-more-button"
+            className="news__list-show-more show-more-button"
             onClick={showMoreCards}
           >
             Show More
