@@ -62,7 +62,7 @@
 
 @media (max-width: 766px) {
   .search__results-contents {
-    padding: 32px 16px 24px;
+    padding: 32px 8px 24px;
   }
 
   .search__results-header {

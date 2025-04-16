@@ -248,17 +248,17 @@
 
 @media (max-width: 320px) {
   .news__card {
-    width: 273px;
+    width: 100%;
     height: 440px;
   }
 
   .news__card-header {
-    width: 273px;
+    width: 100%;
     margin-top: 16px;
   }
 
   .news__card-image {
-    width: 273px;
+    width: 100%;
   }
 
   .news__card-header--saved {
