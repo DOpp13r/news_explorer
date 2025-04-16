@@ -25,7 +25,7 @@
 .about__title {
   font-family: "Roboto-Slab-Regular", sans-serif;
   font-size: 40px;
-  height: 46px;
+  height: auto;
   margin: 50px 0 24px 0;
   font-weight: normal;
 }
