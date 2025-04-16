@@ -2,30 +2,54 @@ import "./Footer.css";
 
 import githubLogo from "../../assets/github-icon.svg";
 import facebookLogo from "../../assets/facebook-icon.svg";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <footer className="footer">
-      <p className="footer__text">© 2024 Supersite, Powered by News API</p>
-      <div className="footer__links">
-        <p className="footer__link">Home</p>
-        <p className="footer__link">TripleTen</p>
-        <div className="footer__link-icons">
-          <a className="footer__link-icon" href="https://github.com/DOpp13r">
-            <img
-              className="footer__social-icon"
-              alt="github logo"
-              src={githubLogo}
-            />
+      <p className="footer__text">© 2025 Supersite, Powered by News API</p>
+      <div className="footer__socials">
+        <nav className="footer__links">
+          <Link to="/" className="footer__link">
+            Home
+          </Link>
+          <a
+            className="footer__link"
+            href="https://tripleten.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            TripleTen
           </a>
-          <a className="footer__link-icon" href="https://www.facebook.com/">
-            <img
-              className="footer__social-icon"
-              alt="facebook logo"
-              src={facebookLogo}
-            />
-          </a>
-        </div>
+        </nav>
+        <nav className="footer__logos">
+          <div className="footer__link-icons">
+            <a
+              className="footer__icon"
+              href="https://github.com/DOpp13r"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className="footer__social-icon"
+                alt="github logo"
+                src={githubLogo}
+              />
+            </a>
+            <a
+              className="footer__icon"
+              href="https://www.facebook.com/tripleten.tech"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className="footer__social-icon"
+                alt="facebook logo"
+                src={facebookLogo}
+              />
+            </a>
+          </div>
+        </nav>
       </div>
     </footer>
   );

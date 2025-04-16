@@ -1,16 +1,198 @@
-import React, { useEffect, useState } from "react";
-import { Routes } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import {
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import About from "../About/About";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import RegistrationCompleteModal from "../RegistrationCompleteModal/RegistrationCompleteModal";
+import SavedNewsPage from "../SavedNewsPage/SavedNewsPage";
+
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+
+import { getItems } from "../../utils/api";
+import { authorize, checkToken, signup } from "../../utils/auth";
 
 function App() {
   const [modalOpen, setModalOpen] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    return localStorage.getItem("jwt") ? true : false;
+  });
+  const [loginError, setLoginError] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [savedArticles, setSavedArticles] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [keywords, setKeywords] = useState([]);
+  const [searchSubmitted, setSearchSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  const [isValid, setIsValid] = useState(false);
+
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    setError("");
+  };
+
+  const handleSearchSubmit = () => {
+    fetchArticles(searchQuery);
+    setKeywords([searchQuery]);
+    setSearchSubmitted(true);
+  };
+
+  const fetchArticles = async (query) => {
+    if (!query) {
+      setError("Please enter a keyword");
+      return;
+    }
+    setLoading(true);
+    try {
+      const data = await getItems(query);
+      if (data.length === 0) {
+        setError("Sorry, no articles matched.");
+      }
+      setSearchResults(data);
+    } catch (err) {
+      setError(
+        "Sorry, we couldn't find any articles matching your search query."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSaveBookmark = (article) => {
+    setSavedArticles((prevSavedArticles) => {
+      const isAlreadySaved = prevSavedArticles.some(
+        (savedArticle) => savedArticle._id === article._id
+      );
+
+      // If we're removing the article, filter it out
+      if (isAlreadySaved) {
+        const newSavedArticles = prevSavedArticles.filter(
+          (savedArticle) => savedArticle._id !== article._id
+        );
+        localStorage.setItem("savedArticles", JSON.stringify(newSavedArticles));
+        return newSavedArticles;
+      }
+
+      // If we're adding the article, include the current search query as the keyword
+      const articleWithKeyword = {
+        ...article,
+        keyword: searchQuery, // Add the current search query as the keyword
+      };
+
+      const newSavedArticles = [...prevSavedArticles, articleWithKeyword];
+      localStorage.setItem("savedArticles", JSON.stringify(newSavedArticles));
+      return newSavedArticles;
+    });
+  };
+
+  useEffect(() => {
+    const savedArticlesFromStorage = localStorage.getItem("savedArticles");
+    if (savedArticlesFromStorage) {
+      setSavedArticles(JSON.parse(savedArticlesFromStorage));
+    }
+  }, []);
+
+  const handleDeleteArticle = (id) => {
+    const updatedArticles = savedArticles.filter(
+      (article) => article._id !== id
+    );
+    console.log("Articles after filter:", updatedArticles);
+    setSavedArticles(updatedArticles);
+    localStorage.setItem("savedArticles", JSON.stringify(updatedArticles));
+  };
+
+  const handleRegister = (values) => {
+    return signup(values)
+      .then(() => {
+        setModalOpen("register-complete");
+      })
+      .catch((err) => {
+        console.error("An error occurred during registration:", err);
+      });
+  };
+
+  const handleLogin = ({ email, password }, setIsSubmitting) => {
+    setIsSubmitting(true);
+    authorize({ email, password })
+      .then((res) => {
+        if (res.token) {
+          localStorage.setItem("jwt", res.token);
+          console.log("User successfully logged in:", res);
+          return getCurrentUser();
+        } else {
+          throw new Error("Token is not received");
+        }
+      })
+      .then((user) => {
+        setCurrentUser(user);
+        setIsLoggedIn(true);
+        closeModal();
+        navigate("/saved-news");
+      })
+      .catch((err) => {
+        console.error("Error logging in:", err);
+        setLoginError("Please enter a valid email and password");
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (token) {
+      getCurrentUser()
+        .then(() => {
+          console.log("Token validated");
+        })
+        .catch((err) => {
+          console.error("Error validating token:", err);
+        });
+    }
+  }, []);
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem("jwt");
+    setCurrentUser(null);
+
+    navigate("/");
+  };
+
+  const getCurrentUser = () => {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
+      return Promise.reject("No token found");
+    }
+    return checkToken(token)
+      .then((res) => {
+        setCurrentUser(res.data);
+        setIsLoggedIn(true);
+        return res.data;
+      })
+      .catch((err) => {
+        console.error("Error fetching user information:", err);
+        setIsLoggedIn(false);
+        setCurrentUser(null);
+        localStorage.removeItem("jwt");
+        throw err;
+      });
+  };
 
   const handleSignInClick = () => {
     console.log("Ready to Log In");
@@ -29,23 +211,90 @@ function App() {
   return (
     <div className="page">
       <div className="page__content">
-        {/* <Routes> */}
-        <div className="page__background">
-          <Header handleSignInClick={handleSignInClick} />
-          <Main />
+        <div
+          className={` ${
+            pathname === "/saved-news"
+              ? "page__background--saved"
+              : "page__background"
+          }`}
+        >
+          <Header
+            isLoggedIn={isLoggedIn}
+            handleSignInClick={handleSignInClick}
+            handleLogout={handleLogout}
+            currentUser={currentUser}
+          />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  isLoggedIn={isLoggedIn}
+                  savedArticles={savedArticles}
+                  setSavedArticles={setSavedArticles}
+                  handleSaveBookmark={handleSaveBookmark}
+                  handleSearch={handleSearch}
+                  handleSearchSubmit={handleSearchSubmit}
+                  searchResults={searchResults}
+                  loading={loading}
+                  searchSubmitted={searchSubmitted}
+                  searchQuery={searchQuery}
+                />
+              }
+            />
+            <Route
+              path="/saved-news"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <SavedNewsPage
+                    isLoggedIn={isLoggedIn}
+                    savedArticles={savedArticles}
+                    currentUser={currentUser}
+                    handleDeleteArticle={handleDeleteArticle}
+                    keywords={keywords}
+                    setKeywords={setKeywords}
+                  />
+                </ProtectedRoute>
+              }
+            >
+              <Route
+                path="*"
+                element={
+                  isLoggedIn ? (
+                    <Navigate to="/saved-news" replace />
+                  ) : (
+                    <Navigate to="/" replace />
+                  )
+                }
+              />
+            </Route>
+          </Routes>
+          <Footer />
         </div>
-        <About />
-        {/* </Routes> */}
-        <Footer />
       </div>
 
       <LoginModal
         isOpen={modalOpen === "sign-in"}
         onClose={closeModal}
         handleSignUpClick={handleSignUpClick}
+        handleLogin={handleLogin}
+        loginError={loginError}
+        setLoginError={setLoginError}
+        setIsSubmitting={setIsSubmitting}
+        isValid={isValid}
+        setIsValid={setIsValid}
       />
       <RegisterModal
         isOpen={modalOpen === "sign-up"}
+        onClose={closeModal}
+        handleRegister={handleRegister}
+        handleSignInClick={handleSignInClick}
+        setIsSubmitting={setIsSubmitting}
+        isValid={isValid}
+        setIsValid={setIsValid}
+      />
+      <RegistrationCompleteModal
+        isOpen={modalOpen === "register-complete"}
         onClose={closeModal}
         handleSignInClick={handleSignInClick}
       />
